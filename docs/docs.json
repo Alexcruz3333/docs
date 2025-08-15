@@ -777,6 +777,21 @@
           {
             "group": "Build with AI",
             "pages": ["cookbook/ai-prompting", "cookbook/base-builder-mcp"]
+          },
+          {
+            "group": "Vibe Code a Mini App",
+            "pages": [
+              "cookbook/understanding-base-app-ecosystem",
+              "cookbook/introduction-to-mini-apps",
+              "cookbook/ai-powered-development-fundamentals",
+              "cookbook/mastering-ai-prompt-engineering",
+              "cookbook/essential-documentation-resources",
+              "cookbook/ai-assisted-documentation-reading",
+              "cookbook/local-development-environment-setup",
+              "cookbook/your-first-mini-app",
+              "cookbook/converting-customizing-mini-apps",
+              "cookbook/successful-miniapps-in-tba"
+            ]
           }
         ]
       },
