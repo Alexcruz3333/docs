@@ -1,9 +1,9 @@
 ---
-title: Add MiniKit to Your App
+title: Make Your Web App a Mini App
 description: Convert your downloaded frontend into a Mini App by integrating MiniKit, Smart Wallet, and Paymaster
 ---
 
-# Make Your Web App a Mini App
+# Add MiniKit to Your App
 
 You have a clean frontend. Now turn it into a Mini App. Vibe coding tools are great for UI, but they do not yet handle onchain pieces perfectly. Download your code, open it in Cursor or Claude Code, and add MiniKit to enable Smart Wallet, gasless transactions, and Base App integration.
 
@@ -44,8 +44,63 @@ You have a clean frontend. Now turn it into a Mini App. Vibe coding tools are gr
   </Step>
 </Steps>
 
-## AI Analysis Prompt (for Cursor or Claude Code)
+## Helpful Prompts:
 
+<Tip>
+  **Shortcut:** On any of the Base docs pages, use the dropdown to “Copy page as
+  Markdown for LLMs” and paste it directly into your AI chat. This gives the
+  model precise instructions and reduces hallucinations.
+</Tip>
+
+<Accordion title="Prompt: Converting Existing Applications to Mini Apps">
+
+```
+Guide me through converting my existing web application into a Mini App:
+
+EXISTING APP ANALYSIS:
+
+My app is built with [DESCRIBE YOUR TECH STACK]
+
+Current features include: [LIST MAIN FEATURES]
+
+User authentication currently uses: [DESCRIBE AUTH METHOD]
+
+Data is stored using: [DESCRIBE DATA STORAGE]
+
+INTEGRATION REQUIREMENTS:
+
+Add MiniKit provider and Smart Wallet in app/layout.tsx
+
+Integrate Coinbase Paymaster for gasless transactions
+
+Place onchain actions on these screens: [LIST SCREENS]
+
+Configure env vars for Base and CDP
+
+Avoid adding any login button
+
+DEPLOYMENT CONFIGURATION:
+
+Prepare .env.local for local and Vercel for production
+
+Deploy with Vercel CLI
+
+Test Base App integration flows
+
+TROUBLESHOOTING SETUP:
+
+Log wallet and sponsorship states
+
+Add clear error toasts
+
+Provide rollbacks for provider or env misconfig
+
+Provide step-by-step instructions with exact code changes and file paths. Include troubleshooting tips for common conversion issues.
+```
+
+</Accordion>
+
+<Accordion title="Prompt: AI Analysis Prompt (for Cursor or Claude Code)">
 Paste this into your AI IDE. Replace bracketed parts with your details. Include the MiniKit “existing app integration” markdown from docs.base.org as an additional message.
 
 ```
@@ -102,143 +157,4 @@ Include troubleshooting tips for common issues (env vars, build errors, missing 
 Now request any files you need to see to proceed, and confirm assumptions before editing.
 ```
 
-<Tip>
-  Docs import shortcut: on the MiniKit “Existing app integration” page, use the
-  dropdown to “Copy page as Markdown for LLMs” and paste it directly into your
-  AI chat. This gives the model precise instructions and reduces hallucinations.
-</Tip>
-
-## Converting Existing Applications to Mini Apps
-
-Converting a traditional web app means adding MiniKit and Paymaster without breaking your current flows.
-
-- Analyze current auth and state so the AI can place provider code cleanly.
-- Add OnchainKit or MiniKit UI where onchain actions live, not everywhere.
-- Configure Paymaster so key actions are gasless.
-- Keep UX consistent with your existing design system.
-
-<Steps>
-  <Step title='Clone and audit'>
-    Clone your repo and note routes, shared layouts, and key components.
-    Identify where onchain actions should live.
-  </Step>
-  <Step title='Integrate MiniKit'>
-    Add provider, hooks, and environment variables. Keep your existing UI and
-    component hierarchy.
-  </Step>
-  <Step title='Enable gasless with Paymaster'>
-    Configure CDP keys locally, implement sponsorship for target actions, and
-    test.
-  </Step>
-  <Step title='Deploy and verify'>
-    Deploy with Vercel, test on production URL, and verify Mini App behavior
-    within Base App context.
-  </Step>
-</Steps>
-
-## Need help? Use this prompt
-
-```
-Guide me through converting my existing web application into a Mini App:
-
-EXISTING APP ANALYSIS:
-
-My app is built with [DESCRIBE YOUR TECH STACK]
-
-Current features include: [LIST MAIN FEATURES]
-
-User authentication currently uses: [DESCRIBE AUTH METHOD]
-
-Data is stored using: [DESCRIBE DATA STORAGE]
-
-INTEGRATION REQUIREMENTS:
-
-Add MiniKit provider and Smart Wallet in app/layout.tsx
-
-Integrate Coinbase Paymaster for gasless transactions
-
-Place onchain actions on these screens: [LIST SCREENS]
-
-Configure env vars for Base and CDP
-
-Avoid adding any login button
-
-DEPLOYMENT CONFIGURATION:
-
-Prepare .env.local for local and Vercel for production
-
-Deploy with Vercel CLI
-
-Test Base App integration flows
-
-TROUBLESHOOTING SETUP:
-
-Log wallet and sponsorship states
-
-Add clear error toasts
-
-Provide rollbacks for provider or env misconfig
-
-Provide step-by-step instructions with exact code changes and file paths. Include troubleshooting tips for common conversion issues.
-```
-
-## Fork, Customize and Deploy
-
-Forking a reference Mini App can save time, then you can layer in your specific flows and branding.
-
-<Steps>
-  <Step title='Fork a relevant starter'>
-    Choose an example close to your use case. Update{' '}
-    <code>miniapp.config.json</code> metadata and environment variables.
-  </Step>
-  <Step title='Customize UI and contracts'>
-    Adjust theme tokens, copy, and any contract addresses or endpoints required
-    for your flows.
-  </Step>
-  <Step title='Deploy and verify in Base App'>
-    Deploy with Vercel, test sharing and discovery, and validate wallet and
-    Paymaster flows end to end.
-  </Step>
-</Steps>
-
-```
-Help me fork and customize an existing Mini App for my specific needs:
-
-PROJECT REQUIREMENTS:
-
-I want to build: [DESCRIBE YOUR MINI APP IDEA]
-
-Target audience: [DESCRIBE YOUR USERS]
-
-Key differentiators: [WHAT MAKES YOUR APP UNIQUE]
-
-Branding requirements: [COLORS, STYLE, MESSAGING]
-
-CUSTOMIZATION TASKS:
-
-Fork appropriate Base Mini App repository
-
-Update miniapp.config.json metadata
-
-Customize theme and copy
-
-Configure contract addresses and env vars
-
-DEPLOYMENT PROCESS:
-
-Deploy with Vercel
-
-Set custom domain if needed
-
-Test Mini App behavior within Base App
-
-VERIFICATION CHECKLIST:
-
-Social sharing displays correctly
-
-Smart Wallet and gasless flows work
-
-All custom features function as expected
-
-Provide a file-by-file checklist, exact commands, and a short troubleshooting section.
-```
+</Accordion>
